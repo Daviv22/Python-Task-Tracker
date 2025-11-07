@@ -23,17 +23,8 @@ def add_task():
 
 def update_task():
     tarefa = int(input("Digite o id da tarefa: "))
-    print("O que você gostaria de mudar:")
-    print("\t1 - Descrição da tarefa")
-    print("\t2 - Status da tarefa")
-    escolha = int(input("Digite: "))
-
-    if escolha == 1:
-        tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
-        tasksList[tarefa]["updateAt"] = get_data()
-    if escolha == 2:
-        tasksList[tarefa]["status"] = input("Digite o novo status: ")
-        tasksList[tarefa]["updateAt"] = get_data()
+    tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
+    tasksList[tarefa]["updateAt"] = get_data()
 
 
 def delete_task():
