@@ -24,14 +24,15 @@ def add_task():
 def update_task():
     tarefa = int(input("Digite o id da tarefa: "))
     tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
-    tasksList[tarefa]["updateAt"] = get_data()
+    tasksList[tarefa]["updatedAt"] = get_data()
 
 
 def delete_task():
     pass
 
 def list_tasks():
-    pass
+    for task in tasksList:
+        print(task)
 
 def mark_task():
     pass
