@@ -17,8 +17,7 @@ def add_task():
     task["description"] = description
     status = input("Adicione o status da tarefa: ")
     task["status"] = status
-    data = datetime.now()
-    task["createdAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+    task["createdAt"] = get_data()
 
     tasksList.append(task)
 
@@ -31,12 +30,10 @@ def update_task():
 
     if escolha == 1:
         tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
-        data = datetime.now()
-        tasksList[tarefa]["updateAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+        tasksList[tarefa]["updateAt"] = get_data()
     if escolha == 2:
-        data = datetime.now()
         tasksList[tarefa]["status"] = input("Digite o novo status: ")
-        tasksList[tarefa]["updateAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+        tasksList[tarefa]["updateAt"] = get_data()
 
 
 def delete_task():
@@ -65,6 +62,12 @@ def check_decision(decisao):
         return list_tasks()
     
     return None
+
+def get_data():
+    data = datetime.now()
+    data = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+
+    return data
 
 def run_app():
 
