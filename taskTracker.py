@@ -35,7 +35,9 @@ def delete_task():
 
 def list_tasks():
     for task in tasksList:
-        print(task)
+        for x, y in task.items():
+            print(x, y)
+        print("\n========== // ==========\n")
 
 def mark_task():
     id = int(input("Que tarefa você quer marcar? "))
@@ -43,6 +45,13 @@ def mark_task():
     print("\t1 - A fazer")
     print("\t2 - Fazendo")
     print("\t3 - Feito")
+    status = int(input("Digite: "))
+    if status == 1:
+        tasksList[id]["status"] = "A fazer"
+    if status == 2:
+        tasksList[id]["status"] = "Fazendo"
+    if status == 3:
+        tasksList[id]["status"] = "Feito"
 
 def json_file():
     pass
