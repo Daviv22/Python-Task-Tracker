@@ -35,10 +35,12 @@ def check_decision(decisao):
         return update_task()
     if decisao == 3:
         return delete_task()
-    if decisao == 4():
+    if decisao == 4:
         return mark_task()
     if decisao == 5:
         return list_tasks()
+    
+    return None
 
 def run_app():
     while True:
@@ -48,7 +50,7 @@ def run_app():
         print("\t3 - Deletar tarefa")
         print("\t4 - Marcar tarefa como ...")
         print("\t5 - Listar tarefas ...")
-        decisao = input("Digite: ")
+        decisao = int(input("Digite: "))
         check_decision(decisao)
 
 run_app()
