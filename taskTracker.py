@@ -1,9 +1,9 @@
 import json
 from datetime import datetime
 
-tasksList = []
-
 def add_task():
+
+    tasksList = get_json_file()
 
     task = {
         "id": "",
@@ -21,25 +21,38 @@ def add_task():
 
     tasksList.append(task)
 
+    send_json_file(tasksList)
+
 def update_task():
+    tasksList = get_json_file()
+
     tarefa = int(input("Digite o id da tarefa: "))
     tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
     tasksList[tarefa]["updatedAt"] = get_data()
 
+    send_json_file(tasksList)
+
 
 def delete_task():
+    tasksList = get_json_file()
+
     id = int(input("Que tarefa você quer remover? "))
     tasksList[:] = [item for item in tasksList if item["id"] != id]
     for i, task in enumerate(tasksList):
         task["id"] = i
 
+    send_json_file(tasksList)
+
 def list_tasks():
+    tasksList = get_json_file()
     for task in tasksList:
         for x, y in task.items():
             print(x, y)
         print("\n========== // ==========\n")
 
 def mark_task():
+    tasksList = get_json_file()
+
     id = int(input("Que tarefa você quer marcar? "))
     print("Quer marcar como...")
     print("\t1 - A fazer")
@@ -53,8 +66,17 @@ def mark_task():
     if status == 3:
         tasksList[id]["status"] = "Feito"
 
-def json_file():
-    pass
+    send_json_file(tasksList)
+
+def get_json_file():
+    with open("teste.json", "r") as f:
+        data = json.load(f)
+
+    return data
+
+def send_json_file(tasksList):
+    with open("teste.json", "w") as f:
+        json.dump(tasksList, f)
 
 def check_decision(decisao):
 
@@ -103,7 +125,6 @@ run_app()
         "createdAt": "",
         "updatedAt": ""
     }
-    with open("teste.json", "a") as f:
-        json.dump(tasksLists, f)
+
 """
 
