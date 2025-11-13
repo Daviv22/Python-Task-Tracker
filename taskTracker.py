@@ -43,9 +43,13 @@ def delete_task():
 
 def list_tasks():
     tasksList = get_json_file()
+    status = input("Listas marcadas como ... ")
     for task in tasksList:
         for x, y in task.items():
-            print(x, y)
+            if task["status"] == status:
+                print(x, y)
+            elif status == "Todas":
+                print(x, y)
         print("\n========== // ==========\n")
 
 def mark_task():
