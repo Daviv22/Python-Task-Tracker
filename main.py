@@ -31,6 +31,16 @@ def main():
 
     if args.command == "add":
         tt.add_task(args.description)
+    elif args.command == "update":
+        tt.update_task(args.id, args.drescription)
+    elif args.command == "delete":
+        tt.delete_task(args.id)
+    elif args.command == "mark":
+        tt.mark_task(args.id, args.status)
+    elif args.command == "list":
+        tt.list_tasks(args.status)
+    else:
+        parser.print_help()
 
 
 
