@@ -14,8 +14,7 @@ def add_task(task_name):
     }
 
     task["id"] = len(tasksList)
-    description = input("Adicione uma descrição da tarefa: ")
-    task["description"] = description
+    task["description"] = task_name
     task["status"] = "A fazer"
     task["createdAt"] = get_data()
 
@@ -53,6 +52,7 @@ def mark_task(task_id, status):
     tasksList = get_json_file()
     
     tasksList[task_id]["status"] = status
+    tasksList[task_id]["updatedAt"] = get_data()
 
     send_json_file(tasksList)
 
