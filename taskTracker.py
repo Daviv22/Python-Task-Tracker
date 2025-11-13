@@ -38,8 +38,6 @@ def delete_task():
 
     id = int(input("Que tarefa você quer remover? "))
     tasksList[:] = [item for item in tasksList if item["id"] != id]
-    for i, task in enumerate(tasksList):
-        task["id"] = i
 
     send_json_file(tasksList)
 
@@ -76,7 +74,7 @@ def get_json_file():
 
 def send_json_file(tasksList):
     with open("teste.json", "w") as f:
-        json.dump(tasksList, f)
+        json.dump(tasksList, f, indent=4)
 
 def check_decision(decisao):
 
@@ -114,17 +112,4 @@ def run_app():
         check_decision(decisao)
 
 run_app()
-
-"""
-    tasksLists = []
-
-    taskStructure = {
-        "id": "",
-        "description": "",
-        "status": "",
-        "createdAt": "",
-        "updatedAt": ""
-    }
-
-"""
 
