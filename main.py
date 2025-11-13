@@ -24,7 +24,7 @@ def main():
     mark_parser.add_argument("status", type=str, help="Marca a tarefa")
 
     # Subcomando list
-    list_parser = subparsers.add_parser("Listar", help="Lista todas as tarefas")
+    list_parser = subparsers.add_parser("listar", help="Lista todas as tarefas")
     list_parser.add_argument("--status", type=str, help="Lista tarefas apenas com o status especificado", default="Todas")
 
     args = parser.parse_args()
