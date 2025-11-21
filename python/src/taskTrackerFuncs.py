@@ -41,12 +41,15 @@ def delete_task(task_id):
 def list_tasks(status):
     tasksList = get_json_file()
     for task in tasksList:
-        for x, y in task.items():
-            if task["status"] == status:
-                print(x, y)
-            elif status == "Todas":
-                print(x, y)
         print("\n========== // ==========\n")
+        print(f"ID: {task["id"]}")
+        print(f"Description: {task["description"]}")
+        print(f"Status {task["status"]}")
+        print(f"Created at: {task["createdAt"]}")
+        if task["updatedAt"]:
+            print(f"Updated at: {task["updatedAt"]}")
+    
+    print("\n========== // ==========\n")
 
 def mark_task(task_id, status):
     tasksList = get_json_file()
